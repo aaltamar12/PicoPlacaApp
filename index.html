@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Alerta Pico y Placa por WhatsApp | Notificaciones Automáticas Colombia</title>
+  <meta name="description" content="Recibe alertas automáticas de pico y placa por WhatsApp en Bogotá, Medellín y toda Colombia. Nunca más olvides las restricciones vehiculares. Prueba gratis 14 días, desde $2 USD/mes." />
+  <meta name="keywords" content="pico y placa, alertas whatsapp, restricciones vehiculares, pico placa bogota, pico placa medellin, notificaciones automaticas, colombia" />
+  <meta name="author" content="Alfonso - PicoPlacaApp" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tudominio.github.io/pico-placa-landing/" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Alerta Pico y Placa por WhatsApp | Notificaciones Automáticas" />
+  <meta property="og:description" content="Recibe alertas automáticas de pico y placa por WhatsApp. Nunca más olvides las restricciones vehiculares. Prueba gratis 14 días." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tudominio.github.io/pico-placa-landing/" />
+  <meta property="og:image" content="https://tudominio.github.io/pico-placa-landing/preview.jpg" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="PicoPlacaApp" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alerta Pico y Placa por WhatsApp | Notificaciones Automáticas" />
+  <meta name="twitter:description" content="Recibe alertas automáticas de pico y placa por WhatsApp. Nunca más olvides las restricciones vehiculares. Prueba gratis 14 días." />
+  <meta name="twitter:image" content="https://tudominio.github.io/pico-placa-landing/preview.jpg" />
+  
+  <!-- Geo Meta Tags -->
+  <meta name="geo.region" content="CO" />
+  <meta name="geo.placename" content="Colombia" />
+  <meta name="ICBM" content="4.710989, -74.072090" />
+  
+  <!-- Mobile App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#00ff99" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PicoPlacaApp",
+    "description": "Servicio de alertas automáticas de pico y placa por WhatsApp para Colombia",
+    "url": "https://tudominio.github.io/pico-placa-landing/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "2",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Alfonso"
+    }
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 50%, #0f1419 100%);
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 50%, #0f1419 100%);
+    }
+
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, #00ff9920 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, #ff006620 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, #0066ff20 0%, transparent 50%);
+      animation: backgroundShift 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundShift {
+      0% { transform: translateX(-10px) translateY(-10px); }
+      100% { transform: translateX(10px) translateY(10px); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0, 255, 153, 0.1);
+      border: 1px solid #00ff99;
+      border-radius: 50px;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #00ff99;
+      margin-bottom: 2rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px rgba(0, 255, 153, 0.2); }
+      to { box-shadow: 0 0 20px rgba(0, 255, 153, 0.4); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #00ff99, #00cc7a, #ffffff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: #a0a9c0;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-weight: 500;
+    }
+
+    .hero-features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .feature-pill {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-pill:hover {
+      background: rgba(0, 255, 153, 0.1);
+      border-color: #00ff99;
+      transform: translateY(-2px);
+    }
+
+    /* Registration Form */
+    .registration-section {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .form-subtitle {
+      text-align: center;
+      color: #a0a9c0;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #00ff99;
+      box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.1);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .input-group input::placeholder {
+      color: #6b7280;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 1.25rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ff99, #00cc7a);
+      color: #000000;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 255, 153, 0.3);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    /* Benefits Section */
+    .benefits-section, .how-it-works {
+      padding: 4rem 0;
+      background: rgba(255, 255, 255, 0.02);
+      margin: 2rem 0;
+    }
+
+    .benefits-section h2, .how-it-works h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #ffffff, #a0a9c0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .benefits-grid, .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-card, .step-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover, .step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 153, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 255, 153, 0.1);
+    }
+
+    .benefit-card h3, .step-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #00ff99;
+    }
+
+    .benefit-card p, .step-card p {
+      color: #a0a9c0;
+      line-height: 1.6;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #00ff99, #00cc7a);
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .pricing-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .pricing-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, #a0a9c0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pricing-subtitle {
+      color: #a0a9c0;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      border-color: #00ff99;
+      box-shadow: 0 20px 40px rgba(0, 255, 153, 0.1);
+    }
+
+    .pricing-card.premium {
+      border-color: #00ff99;
+      background: rgba(0, 255, 153, 0.05);
+    }
+
+    .pricing-card.premium::before {
+      content: '🌟 MÁS POPULAR';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #00ff99;
+      color: #000;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .plan-price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #00ff99;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-period {
+      color: #a0a9c0;
+      margin-bottom: 2rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .plan-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+
+    .check-icon {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    /* Response message */
+    .response-message {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .response-success {
+      background: rgba(0, 255, 153, 0.1);
+      border: 1px solid #00ff99;
+      color: #00ff99;
+    }
+
+    .response-error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid #ef4444;
+      color: #ef4444;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+
+    .footer-text {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .hero {
+        padding: 2rem 0;
+      }
+      
+      .hero-features {
+        gap: 1rem;
+      }
+      
+      .registration-section {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero, .registration-section, .pricing-section {
+      animation: fadeInUp 0.8s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">✨ PRUEBA GRATIS 14 DÍAS</div>
+      <h1>🚨 Alertas Automáticas de Pico y Placa por WhatsApp en Colombia</h1>
+      <p class="hero-subtitle">
+        Recibe notificaciones automáticas por <strong>WhatsApp</strong> cuando tu placa tenga restricción en Bogotá, Medellín o tu ciudad. 
+        Sin apps que instalar, sin recordatorios manuales.
+      </p>
+      
+      <div class="hero-features">
+        <div class="feature-pill">
+          <span>📱</span> Directo a WhatsApp
+        </div>
+        <div class="feature-pill">
+          <span>⚡</span> Alertas Automáticas
+        </div>
+        <div class="feature-pill">
+          <span>🎯</span> 100% Preciso
+        </div>
+        <div class="feature-pill">
+          <span>🇨🇴</span> Toda Colombia
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2>¿Por Qué Elegir Nuestras Alertas de Pico y Placa?</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Cobertura Nacional</h3>
+            <p>Monitoreamos pico y placa en Bogotá, Medellín, Cali, Barranquilla, Bucaramanga y todas las ciudades principales de Colombia con restricciones vehiculares.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <h3>Información Oficial</h3>
+            <p>Obtenemos datos directamente de fuentes oficiales como Secretarías de Movilidad y páginas gubernamentales para garantizar precisión total.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <h3>Sin Instalaciones</h3>
+            <p>No necesitas descargar apps ni configurar nada complicado. Solo registra tu placa y recibe alertas directamente en WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+      <div class="container">
+        <h2>¿Cómo Funcionan las Alertas de Pico y Placa?</h2>
+        
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Registra tu Vehículo</h3>
+            <p>Ingresa tu nombre, placa del vehículo y número de WhatsApp en nuestro formulario seguro.</p>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Verificación Automática</h3>
+            <p>Nuestro sistema verifica diariamente si tu placa tiene restricción de pico y placa según las normativas vigentes.</p>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Alerta por WhatsApp</h3>
+            <p>Recibes un mensaje automático en WhatsApp cuando tu vehículo tenga restricción, con horarios y zonas específicas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration-section">
+      <h2 class="form-title">Comenzar Ahora</h2>
+      <p class="form-subtitle">Completa tus datos y recibe tu primera alerta mañana</p>
+      
+      <div class="form-grid">
+        <div class="input-group">
+          <input type="text" placeholder="Tu nombre completo" id="nombre" />
+        </div>
+        
+        <div class="input-group">
+          <input type="text" placeholder="Placa del vehículo (ABC123)" id="placa" />
+        </div>
+        
+        <div class="input-group">
+          <input type="tel" placeholder="WhatsApp (+57 300 123 4567)" id="telefono" />
+        </div>
+      </div>
+      
+      <button class="cta-button" onclick="registrar()">
+        🚀 Activar Alertas Gratis
+      </button>
+      
+      <div id="respuesta" class="response-message" style="display: none;"></div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <h2 class="pricing-title">Planes de Alertas de Pico y Placa</h2>
+      <p class="pricing-subtitle">Comienza gratis y actualiza cuando necesites más funciones para tus vehículos</p>
+      
+      <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <h3 class="plan-name">Plan Gratuito</h3>
+          <div class="plan-price">$0</div>
+          <div class="plan-period">14 días de prueba</div>
+          
+          <ul class="plan-features">
+            <li><span class="check-icon">✓</span> 1 placa registrada</li>
+            <li><span class="check-icon">✓</span> Alertas lunes a viernes</li>
+            <li><span class="check-icon">✓</span> Notificación básica</li>
+            <li><span class="check-icon">✓</span> Información actualizada</li>
+          </ul>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="pricing-card premium">
+          <h3 class="plan-name">Plan Premium</h3>
+          <div class="plan-price">$2</div>
+          <div class="plan-period">USD/mes</div>
+          
+          <ul class="plan-features">
+            <li><span class="check-icon">✓</span> Hasta 3 placas</li>
+            <li><span class="check-icon">✓</span> Alertas 7 días/semana</li>
+            <li><span class="check-icon">✓</span> Doble notificación</li>
+            <li><span class="check-icon">✓</span> Horarios personalizados</li>
+            <li><span class="check-icon">✓</span> Soporte prioritario</li>
+          </ul>
+        </div>
+
+        <!-- Annual Plan -->
+        <div class="pricing-card">
+          <h3 class="plan-name">Plan Anual</h3>
+          <div class="plan-price">$20k</div>
+          <div class="plan-period">COP/año - 1 placa</div>
+          
+          <ul class="plan-features">
+            <li><span class="check-icon">✓</span> 1 placa todo el año</li>
+            <li><span class="check-icon">✓</span> Ahorra 33%</li>
+            <li><span class="check-icon">✓</span> Sin interrupciones</li>
+            <li><span class="check-icon">✓</span> Facturación única</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">
+        &copy; 2025 PicoPlacaApp - Desarrollado por Alfonso
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    async function registrar() {
+      const nombre = document.getElementById('nombre').value.trim();
+      const placa = document.getElementById('placa').value.trim().toUpperCase();
+      const telefono = document.getElementById('telefono').value.trim();
+      const respuesta = document.getElementById('respuesta');
+
+      // Validación básica
+      if (!nombre || !placa || !telefono) {
+        mostrarRespuesta('Por favor completa todos los campos', 'error');
+        return;
+      }
+
+      // Validación de placa (formato básico)
+      const placaRegex = /^[A-Z]{3}\d{3}$/;
+      if (!placaRegex.test(placa.replace(/\s/g, ''))) {
+        mostrarRespuesta('Formato de placa inválido. Usa ABC123', 'error');
+        return;
+      }
+
+      // Validación de teléfono
+      if (!telefono.includes('+57') && !telefono.startsWith('3')) {
+        mostrarRespuesta('Número de WhatsApp inválido', 'error');
+        return;
+      }
+
+      const data = {
+        nombre,
+        placa: placa.replace(/\s/g, ''),
+        phone: telefono
+      };
+
+      // Cambiar botón durante el envío
+      const button = document.querySelector('.cta-button');
+      const originalText = button.textContent;
+      button.textContent = '⏳ Registrando...';
+      button.disabled = true;
+
+      try {
+        const res = await fetch('https://TU_BACKEND_URL/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        if (res.ok) {
+          const text = await res.text();
+          mostrarRespuesta(`¡Perfecto! ${text}. Recibirás tu primera alerta mañana.`, 'success');
+          limpiarFormulario();
+        } else {
+          throw new Error('Error del servidor');
+        }
+      } catch (error) {
+        mostrarRespuesta('Error al registrar. Verifica tu conexión e intenta nuevamente.', 'error');
+      } finally {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+    }
+
+    function mostrarRespuesta(mensaje, tipo) {
+      const respuesta = document.getElementById('respuesta');
+      respuesta.textContent = mensaje;
+      respuesta.className = `response-message response-${tipo}`;
+      respuesta.style.display = 'block';
+      
+      // Auto-hide después de 5 segundos si es éxito
+      if (tipo === 'success') {
+        setTimeout(() => {
+          respuesta.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    function limpiarFormulario() {
+      document.getElementById('nombre').value = '';
+      document.getElementById('placa').value = '';
+      document.getElementById('telefono').value = '';
+    }
+
+    // Formatear placa automáticamente
+    document.getElementById('placa').addEventListener('input', function(e) {
+      let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (value.length > 3) {
+        value = value.slice(0, 3) + value.slice(3, 6);
+      }
+      e.target.value = value;
+    });
+
+    // Formatear teléfono
+    document.getElementById('telefono').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/[^0-9+]/g, '');
+      if (!value.startsWith('+57') && value.length > 0 && !value.startsWith('+')) {
+        value = '+57' + value;
+      }
+      e.target.value = value;
+    });
+  </script>
+</body>
+</html>
